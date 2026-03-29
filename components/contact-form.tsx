@@ -1,64 +1,26 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { sendContactEmail } from "@/app/actions"
-import { useToast } from "@/hooks/use-toast"
 import { motion } from "framer-motion"
+import { Send } from "lucide-react"
 
 export function ContactForm() {
-  const { toast } = useToast()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target
-    setFormData((prev) => ({ ...prev, [id]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitting(true)
+    const formData = new FormData(e.currentTarget)
+    const name = formData.get("name") as string
+    const email = formData.get("email") as string
+    const subject = formData.get("subject") as string
+    const message = formData.get("message") as string
 
-    try {
-      const result = await sendContactEmail(formData)
+    const mailtoLink = `mailto:pengwen23@mails.ucas.ac.cn?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(
+      `姓名: ${name}\n邮箱: ${email}\n\n${message}`
+    )}`
 
-      if (result.success) {
-        toast({
-          title: "Message sent!",
-          description: "Thank you for your message. I'll get back to you soon.",
-          variant: "default",
-        })
-
-        // Reset form
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        })
-      } else {
-        toast({
-          title: "Error",
-          description: result.error || "Something went wrong. Please try again.",
-          variant: "destructive",
-        })
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again later.",
-        variant: "destructive",
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
+    window.location.href = mailtoLink
   }
 
   const inputVariants = {
@@ -77,15 +39,14 @@ export function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium">
-            Name
+            姓名
           </label>
           <motion.input
             id="name"
+            name="name"
             type="text"
             className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 dark:bg-gray-800"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
+            placeholder="您的姓名"
             required
             whileFocus="focus"
             variants={inputVariants}
@@ -93,15 +54,14 @@ export function ContactForm() {
         </div>
         <div className="space-y-2">
           <label htmlFor="email" className="text-sm font-medium">
-            Email
+            邮箱
           </label>
           <motion.input
             id="email"
+            name="email"
             type="email"
             className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 dark:bg-gray-800"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
+            placeholder="your@email.com"
             required
             whileFocus="focus"
             variants={inputVariants}
@@ -110,15 +70,14 @@ export function ContactForm() {
       </div>
       <div className="space-y-2">
         <label htmlFor="subject" className="text-sm font-medium">
-          Subject
+          主题
         </label>
         <motion.input
           id="subject"
+          name="subject"
           type="text"
           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 dark:bg-gray-800"
-          placeholder="Subject"
-          value={formData.subject}
-          onChange={handleChange}
+          placeholder="邮件主题"
           required
           whileFocus="focus"
           variants={inputVariants}
@@ -126,23 +85,25 @@ export function ContactForm() {
       </div>
       <div className="space-y-2">
         <label htmlFor="message" className="text-sm font-medium">
-          Message
+          内容
         </label>
         <motion.textarea
           id="message"
+          name="message"
           rows={5}
           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 dark:bg-gray-800"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
+          placeholder="请输入您的留言..."
           required
           whileFocus="focus"
           variants={inputVariants}
         ></motion.textarea>
       </div>
       <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-        <Button type="submit" className="w-full relative overflow-hidden group" disabled={isSubmitting}>
-          <span className="relative z-10">{isSubmitting ? "Sending..." : "Send Message"}</span>
+        <Button type="submit" className="w-full relative overflow-hidden group">
+          <span className="relative z-10 flex items-center justify-center gap-2">
+            <Send className="w-4 h-4" />
+            发送邮件
+          </span>
           <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
         </Button>
       </motion.div>
