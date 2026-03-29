@@ -225,7 +225,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video relative rounded-md overflow-hidden mb-4 bg-gray-100 dark:bg-gray-700 transform transition-transform duration-500 hover:scale-[1.02]">
-                    <Image src="/images/project-1.png" alt="小宇宙APP" fill className="object-cover" />
+                    <Image src="/portfolio/images/project-1.png" alt="小宇宙APP" fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
@@ -250,7 +250,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video relative rounded-md overflow-hidden mb-4 bg-gray-100 dark:bg-gray-700 transform transition-transform duration-500 hover:scale-[1.02]">
-                    <Image src="/images/project-2.png" alt="预印本论文调研" fill className="object-cover" />
+                    <Image src="/portfolio/images/project-2.png" alt="预印本论文调研" fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
@@ -276,7 +276,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video relative rounded-md overflow-hidden mb-4 bg-gray-100 dark:bg-gray-700 transform transition-transform duration-500 hover:scale-[1.02]">
-                    <Image src="/images/project-3.png" alt="同行评议研究" fill className="object-cover" />
+                    <Image src="/portfolio/images/project-3.png" alt="同行评议研究" fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
@@ -303,7 +303,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video relative rounded-md overflow-hidden mb-4 bg-gray-100 dark:bg-gray-700 transform transition-transform duration-500 hover:scale-[1.02]">
-                    <Image src="/images/project-4.png" alt="专利分析" fill className="object-cover" />
+                    <Image src="/portfolio/images/project-4.png" alt="专利分析" fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
@@ -328,7 +328,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video relative rounded-md overflow-hidden mb-4 bg-gray-100 dark:bg-gray-700 transform transition-transform duration-500 hover:scale-[1.02]">
-                    <Image src="/images/project-5.png" alt="PSMU量表" fill className="object-cover" />
+                    <Image src="/portfolio/images/project-5.png" alt="PSMU量表" fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
@@ -353,7 +353,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video relative rounded-md overflow-hidden mb-4 bg-gray-100 dark:bg-gray-700 transform transition-transform duration-500 hover:scale-[1.02]">
-                    <Image src="/images/project-6.jpg" alt="bioRxiv论文" fill className="object-cover" />
+                    <Image src="/portfolio/images/project-6.jpg" alt="bioRxiv论文" fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">

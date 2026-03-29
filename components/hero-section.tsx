@@ -81,7 +81,7 @@ export function HeroSection() {
             }}
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
-              <Image src="/images/profile.png" alt="彭雯" fill className="object-cover" priority />
+              <Image src="/portfolio/images/profile.png" alt="彭雯" fill className="object-cover" priority />
               <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 mix-blend-overlay" />
             </div>
           </ClientMotion>
